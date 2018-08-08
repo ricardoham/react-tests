@@ -1,12 +1,17 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import CommentBox from 'components/comment-box';
+import Root from 'Root';
 
 let wrapped;
 
 // Execute before each test run
 beforeEach(() => {
-    wrapped = mount(<CommentBox />);
+    wrapped = mount(
+    <Root>
+        <CommentBox />
+    </Root>
+    );
 })
 
 // Execute afeter each test run
