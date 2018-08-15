@@ -25,7 +25,7 @@ it('has a text are and a button', () => {
     // console.log(wrapped.find('button'));
     
     expect(wrapped.find('textarea').length).toEqual(1);
-    expect(wrapped.find('button').length).toEqual(1);
+    expect(wrapped.find('button').length).toEqual(2);
 });
 
 // describe looks like a wrapper when you need to use same method 
