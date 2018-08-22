@@ -8,6 +8,23 @@ class CommentBox extends Component {
         comment: ''
     };
 
+    componentDidMount() {
+        this.shouldNavigateAway();
+
+    }
+
+    // o component ira re-render toda a vez que ele receber
+    // um novo props
+    componentDidUpdate() {
+        this.shouldNavigateAway();
+    }
+
+    shouldNavigateAway() {
+        if (!this.props.auth) {
+            this.props.history.push('/');
+        }
+    }
+    
     handleChange = (event) => {
         this.setState({
             comment:event.target.value
@@ -38,4 +55,10 @@ class CommentBox extends Component {
     }
 };
 
-export default connect(null, actions)(CommentBox);
+function mapStateToProps(state) {
+    return {
+        auth: state.auth,
+    };
+};
+
+export default connect(mapStateToProps, actions)(CommentBox);
